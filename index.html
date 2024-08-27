@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="border">
+      <div class="main">
+        <h1>"Calculator"</h1>
+        <h3>Enter your first no:</h3>
+        <input type="number" id="userInput1" class="font" />
+        <br />
+        <h3>Enter your second no:</h3>
+        <input type="number" id="userInput2" class="font" />
+        <br />
+        <h3>Select the Operator:</h3>
+        <select name="Options" id="Operator" class="font">
+          <option value="Addition">Addition</option>
+          <option value="Subtraction">Subtraction</option>
+          <option value="Multiplication">Multiplication</option>
+          <option value="Division">Division</option>
+          <option value="Exponent">Exponent</option>
+          <option value="Percentage">Percentage</option>
+          <option value="Modulus">Modulus</option>
+        </select>
+        <br />
+        <button onclick="submit()" class="button">Calculate</button>
+        <div id="result"></div>
+      </div>
+    </div>
+
+    <script>
+      function submit() {
+        let userInput1 = document.querySelector("#userInput1").value;
+        let userInput2 = document.querySelector("#userInput2").value;
+        let Operator = document.querySelector("#Operator").value;
+
+        let result;
+
+        if (Operator === "Addition") {
+          result = Number(userInput1) + Number(userInput2);
+        } else if (Operator === "Subtraction") {
+          result = Number(userInput1) - Number(userInput2);
+        } else if (Operator === "Multiplication") {
+          result = Number(userInput1) * Number(userInput2);
+        } else if (Operator === "Division") {
+          result = (Number(userInput1) / Number(userInput2)).toFixed(2);
+        } else if (Operator === "Exponent") {
+          result = Number(userInput1) ** Number(userInput2);
+        } else if (Operator === "Modulus") {
+          result = (Number(userInput1) % Number(userInput2)).toFixed(2);
+        } else if (Operator === "Percentage") {
+          result = ((Number(userInput1) / Number(userInput2)) * 100).toFixed(2);
+        } else {
+          result = "";
+        }
+        document.querySelector("#result").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
